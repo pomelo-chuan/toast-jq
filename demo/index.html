@@ -13,12 +13,26 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta NAME="robots" CONTENT="noindex, nofollow">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#error").click(function () {
+                poToast.error('抱歉,服务出现异常', 3000)
+            });
+            $("#primary").click(function () {
+                poToast.primary('请填写身份信息', 3000)
+            });
+            $("#success").click(function () {
+                poToast.success('请填写身请填请填写身份信息请填写身份信息请填写身份信息写身份信息请填写身份信息请填写身份信息请填写身份信息份信息请填写身份信息请填写身份信息请填写身份信息')
+            });
+        });
+    </script>
 </head>
 
 <body>
     <button id="error">error</button>
     <button id="primary">primary</button>
     <button id="success">success</button>
-<script type="text/javascript" src="toast.js"></script></body>
+    <script type="text/javascript" src="../dist/toast.min.js"></script>
+</body>
 
-</html>                
+</html>

@@ -1,5 +1,9 @@
-import poColor from './constants';
-
+// import poColor from './constants';
+const poColor = {
+    'error': '#FF8371',
+    'success': '#43B034',
+    'primary': '#7B7B7B',
+}
 function poToastHTML(text, className) {
     return '<div style="' +
         'padding: 6px 12px;' +
@@ -51,16 +55,35 @@ function poRemoveToast(className, duration) {
     }, duration)
 }
 
-var poToast = {
-    error: function (text, duration) {
-        poDidToast(text, duration, 'error');
-    },
-    primary: function (text, duration) {
-        poDidToast(text, duration, 'primary');
-    },
-    success: function (text, duration) {
-        poDidToast(text, duration, 'success');
-    }
-}
+// var poToast = {
+//     error: function (text, duration) {
+//         poDidToast(text, duration, 'error');
+//     },
+//     primary: function (text, duration) {
+//         poDidToast(text, duration, 'primary');
+//     },
+//     success: function (text, duration) {
+//         poDidToast(text, duration, 'success');
+//     }
+// }
 
-export default poToast;
+// export default poToast;
+
+var poToast = (function () {
+    var _error = function (text, duration) {
+        poDidToast(text, duration, 'error');
+    };
+    var _primary = function (text, duration) {
+        poDidToast(text, duration, 'primary');
+    };
+    var _success = function (text, duration) {
+        poDidToast(text, duration, 'success');
+    };
+    return {
+        error: _error,
+        primary: _primary,
+        success: _success, 
+    }
+})();
+
+window.poToast = poToast;
