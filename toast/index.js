@@ -1,9 +1,5 @@
-// import poColor from './constants';
-const poColor = {
-    'error': '#FF8371',
-    'success': '#43B034',
-    'primary': '#7B7B7B',
-}
+import poColor from './constants';
+
 function poToastHTML(text, className) {
     return '<div style="' +
         'padding: 6px 12px;' +
@@ -54,20 +50,6 @@ function poRemoveToast(className, duration) {
         });
     }, duration)
 }
-
-// var poToast = {
-//     error: function (text, duration) {
-//         poDidToast(text, duration, 'error');
-//     },
-//     primary: function (text, duration) {
-//         poDidToast(text, duration, 'primary');
-//     },
-//     success: function (text, duration) {
-//         poDidToast(text, duration, 'success');
-//     }
-// }
-
-// export default poToast;
 
 var poToast = (function () {
     var _error = function (text, duration) {
