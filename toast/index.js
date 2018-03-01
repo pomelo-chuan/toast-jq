@@ -86,4 +86,5 @@ var poToast = (function () {
     }
 })();
 
-window.poToast = poToast;
+// window.poToast = poToast;
+export default poToast;
