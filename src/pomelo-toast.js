@@ -11,8 +11,8 @@ class PomeloToast {
         this.BG_COLOR = {
             white: 'white',
             primary: '#757575',
-            error: '#FF3D00',
-            success: '#1DE9B6',
+            error: '#FF7043',
+            success: '#51C332',
             warning: '#FFC400',
             blue: '#1E88E5',
         };
