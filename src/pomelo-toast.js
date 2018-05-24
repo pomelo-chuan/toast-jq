@@ -71,7 +71,7 @@ class PomeloToast {
                 type = content.type;
             }
             if (content.time) {
-                time = content.time > 2000 ? content.time : 2000;
+                time = (content.time > 0 && content.time < 2000) ? 2000 : content.time;
             }
             if (content.text) {
                 text = content.text;
@@ -85,9 +85,22 @@ class PomeloToast {
             text: text,
             type: type,
         });
+        if (time === -1) {
+            return;
+        }
         this.remove({
             id: id,
             time: time,
         })
+    }
+
+    hide() {
+        if ($('#pomelo-toast-container').length === 0) {
+            return;
+        }
+        $('#pomelo-toast-container').addClass('pomelo-toast-down');
+        setTimeout(() => {
+            $('#pomelo-toast-container').remove();
+        }, 800);
     }
 }

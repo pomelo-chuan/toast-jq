@@ -32,6 +32,8 @@
     <button id="white" class="positive-btn positive-btn-grey">white</button>
     <button id="blue" class="positive-btn positive-btn-grey">blue</button>
   </div>
+  <button id="always-on" class="positive-btn positive-btn-grey">always on</button>
+  <button id="hide" class="positive-btn positive-btn-grey">hide</button>
 </body>
 <script type="text/javascript">
   var toast = new PomeloToast();
@@ -42,6 +44,19 @@
       text: type,
       time: 3000,
     })
+  });
+
+
+  $('#hide').on('click', function () {
+    toast.hide();
+  });
+
+  $('#always-on').on('click', function() {
+    toast.show({
+      type: 'blue',
+      text: 'always on',
+      time: -1,
+    });
   });
 </script>
 
