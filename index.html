@@ -21,41 +21,30 @@
     <button id="error">error</button>
     <button id="primary">primary</button>
     <button id="success">success</button>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
-    <p>asideasdasd</p>
+    <button id="warning">warning</button>
 </body>
 <script type="text/javascript">
   $('#primary').on('click', function () {
-      pomeloToast('primary')
-  })
+      pomeloToast('primary');
+  });
+  $('#error').on('click', function () {
+      pomeloToast({
+        type: 'error',
+        text: 'error'
+      });
+  });
+  $('#success').on('click', function () {
+    pomeloToast({
+      type: 'success',
+      text: 'success',
+    });
+  });
+  $('#warning').on('click', function () {
+    pomeloToast({
+      type: 'warning',
+      text: 'warning',
+    });
+  });
 </script>
 
 </html>                

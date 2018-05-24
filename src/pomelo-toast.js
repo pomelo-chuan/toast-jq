@@ -1,16 +1,23 @@
 const pomeloToast = function(content) {
-  let type = '';
+
+  let type = 'primary';
   let time = 3000;
   let text = '';
-  if (typeof content === 'string') {
-    type = 'primary';  
+  const id = 'pomelo-toast-id-' + new Date().getTime();
+  
+  if (typeof content === 'string' || typeof content === 'number') {
+    type = 'primary';
     text = content;
   } else {
-    type = content.type;
-    if (content.time) {
-        time = content.time;
+    if (content.type) {
+      type = content.type;
     }
-    text = content.text;
+    if (content.time) {
+      time = content.time;
+    }
+    if (content.text) {
+      text = content.text;
+    }
   }
   if ($('#pomelo-toast-container').length === 0) {
     $('body').append(`
@@ -18,19 +25,18 @@ const pomeloToast = function(content) {
       </div>
       `);
   }
-  const id = 'pomelo-toast-id' + new Date().getTime();
   pomeloToastAppend({
     id: id,
     text: text,
     type: type,
   });
-  setTimeout(() => {
-    pomeloToastRemove({
-      id: id,
-    })
-  }, time)
+  pomeloToastRemove({
+    id: id,
+    time: time,
+  })
 };
 
+// append DOM
 function pomeloToastAppend(content) {
   const {
     id,
@@ -42,9 +48,20 @@ function pomeloToastAppend(content) {
     `);
 }
 
+// reomove DOM
 function pomeloToastRemove(content) {
   const {
     id,
+    time,
   } = content;
-  $(`#${id}`).remove();
+  setTimeout(() => {
+    $(`#${id}`).addClass('pomelo-toast-down');
+  }, time - 800);
+  setTimeout(() => {
+    if ($('#pomelo-toast-container')[0]['children'].length < 2) {
+      $('#pomelo-toast-container').remove();
+      return;
+    }
+    $(`#${id}`).remove();
+  }, time);
 }
