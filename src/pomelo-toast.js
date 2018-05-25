@@ -16,6 +16,11 @@ class PomeloToast {
             warning: '#FFC400',
             blue: '#1E88E5',
         };
+        this.CONTENT = {
+            type: 'primary',
+            time: 3000,
+            text: '',
+        };
     }
 
     checkEnvironment() {
@@ -58,7 +63,6 @@ class PomeloToast {
         let time = 3000;
         let text = '';
         const id = 'pomelo-toast-id-' + new Date().getTime();
-
         if (typeof content === 'string' || typeof content === 'number') {
             type = 'primary';
             text = content;
@@ -81,6 +85,7 @@ class PomeloToast {
             text: text,
             type: type,
         });
+        // time === -1: always show this toast
         if (time === -1) {
             return;
         }
