@@ -12,7 +12,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta NAME="robots" CONTENT="noindex, nofollow">
-  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script> 
   <script src="./dist/pomelo-toast.min.js" charset="utf-8"></script>
   <link rel="stylesheet" href="./dist/pomelo-toast.min.css">
   <link rel="stylesheet" href="https://pomelo-chuan.github.io/Positive-Button/styles/positive-button.css">
@@ -48,7 +49,7 @@
 
 
   $('#hide').on('click', function () {
-    toast.hide();
+    toast.removeAll();
   });
 
   $('#always-on').on('click', function() {

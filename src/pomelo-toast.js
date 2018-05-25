@@ -42,10 +42,6 @@ class PomeloToast {
             $(`#${id}`).addClass('pomelo-toast-down');
         }, time - 800);
         setTimeout(() => {
-            if ($('#pomelo-toast-container')[0]['children'].length < 2) {
-                $('#pomelo-toast-container').remove();
-                return;
-            }
             $(`#${id}`).remove();
         }, time);
     }
@@ -94,13 +90,10 @@ class PomeloToast {
         })
     }
 
-    hide() {
+    removeAll() {
         if ($('#pomelo-toast-container').length === 0) {
             return;
         }
-        $('#pomelo-toast-container').addClass('pomelo-toast-down');
-        setTimeout(() => {
-            $('#pomelo-toast-container').remove();
-        }, 800);
+        $('#pomelo-toast-container').remove();
     }
 }
